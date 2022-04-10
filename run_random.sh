@@ -7,20 +7,27 @@ function terminate_execution () {
 }
 
 
+# Check number of arguments.
+if (( "$#" != 2 )); then
+    echo "Number of arguments is wrong";
+    terminate_execution
+fi
+
+
 # Check necessary files.
 flag=false
-if [[ ! -e "a.out" ]]; then
-    echo "\"a.out\" does not exist"
+if [[ ! -e "$1" ]]; then
+    echo "$1 does not exist"
     flag=true
 fi
 
-if [[ ! -e "b.out" ]]; then
-    echo "\"b.out\" does not exist"
+if [[ ! -e "$2" ]]; then
+    echo "$2 does not exist"
     flag=true
 fi
 
 if [[ ! -e "make_random.cpp" ]]; then
-    echo "\"make_random.cpp\" does not exist"
+    echo "make_random.cpp does not exist"
     flag=true
 fi
 
@@ -29,7 +36,19 @@ if "$flag"; then
 fi
 
 
-# Compile "make_random.cpp".
+# Compile.
+g++ "$1" -o "a.out"
+if (( "$?" != 0 )); then
+    echo "Fail in compiling $1"
+    terminate_execution
+fi
+
+g++ "$2" -o "b.out"
+if (( "$?" != 0 )); then
+    echo "Fail in compiling $2"
+    terminate_execution
+fi
+
 g++ "make_random.cpp" -o "c.out"
 if (( "$?" != 0 )); then
     echo "Fail in compiling make_random.cpp"

@@ -16,20 +16,12 @@ fi
 
 # Check necessary files.
 flag=false
-if [[ ! -e "$1" ]]; then
-    echo "$1 does not exist"
-    flag=true
-fi
-
-if [[ ! -e "$2" ]]; then
-    echo "$2 does not exist"
-    flag=true
-fi
-
-if [[ ! -e "make_random.cpp" ]]; then
-    echo "make_random.cpp does not exist"
-    flag=true
-fi
+for file in "$1" "$2" "make_random.cpp"; do
+    if [[ ! -e "$file" ]]; then
+        echo "$file does not exist"
+        flag=true
+    fi
+done
 
 if "$flag"; then
     terminate_execution
@@ -57,13 +49,13 @@ fi
 
 
 # Test random cases by two ways until the two answers are not same.
-while true; do
+for (( i=0; i < 50; ++i )) {
     ./c.out > input.txt
     ans1=$(./a.out < input.txt)
     ans2=$(./b.out < input.txt)
     
     if [[ "$ans1" != "$ans2" ]]; then
-        echo "Wrong Answer!"
+        echo "Different Answer!"
         echo ""
         
         if (( $(wc -c < input.txt) <= 10000 )); then
@@ -79,6 +71,6 @@ while true; do
         echo "${ans2}"
         exit
     fi
-done
+}
 
-# Do not reach.
+echo "Finish testing 50 times"

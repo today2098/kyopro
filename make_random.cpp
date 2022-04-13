@@ -22,15 +22,32 @@ int main(){
     // std::uniform_int_distribution<> dist_(0, 100);
     // std::normal_distribution<> ndist_(50.0, 10.0);
 
-    std::uniform_int_distribution<> dist_n(1, (int)2e5);
-    int n = dist_n(rnd);
-    int x=dist_n(rnd), y=dist_n(rnd);
-    if(x<y) swap(x,y);
-    cout<<n<<' '<<x<<' '<<y<<endl;
+    // std::uniform_int_distribution<> dist_n(0, 100);
+    // int n = dist_n(rnd);
     
-    REP(i,n){
-        int a=dist_n(rnd);
-        cout<<a<<' ';
-    }
-    cout<<endl;
+    uniform_int_distribution<> dist_n(1,10);
+    int n=dist_n(rnd);
+    cout<<n<<endl;
+    
+    ll mx=1;
+    FOR(i,2,n+1) mx*=i;
+    
+    uniform_int_distribution<> dist_pq(1,mx);
+    int p=dist_pq(rnd);
+    int q=dist_pq(rnd);
+    
+    vi v(n);
+    REP(i,n) v[i]=i+1;
+    int cnt=1;
+    do{
+        if(cnt==p){
+            for(auto out:v) cout<<out<<' ';
+            cout<<endl;    
+        }
+        if(cnt==q){
+            for(auto out:v) cout<<out<<' ';
+            cout<<endl; 
+        }
+        cnt++;
+    }while(next_permutation(ALL(v)));
 }

@@ -19,29 +19,20 @@ int main(){
     int q;
     cin>>n>>k>>q;
     
-    vector<pii> vp(k); // vp[l](posi,i):=(左からl番目にあるコマの番号iと位置posi)
-    REP(i,k){
-        int a;
-        cin>>a;
-        vp[i]=pii(a,i);
-    }
-    sort(ALL(vp));
+    vi a(k);
+    for(auto &in:a) cin>>in;
     
     while(q--){
         int l;
         cin>>l;
         l--;
         
-        auto &[posi,i]=vp[l];
         if(l==k-1){
-            if(posi<n) posi++;
+            if(a[l]<n) a[l]++;
         }else{
-            if(posi+1<vp[l+1].first) posi++;
+            if(a[l]+1<a[l+1]) a[l]++;
         }
     }
     
-    vi ans(k);
-    for(const auto &[posi,i]:vp) ans[i]=posi;
-    
-    line(ans,cout);
+    line(a,cout);
 }

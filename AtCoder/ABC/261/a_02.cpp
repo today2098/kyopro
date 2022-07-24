@@ -19,3 +19,5 @@ int main(){
     auto ans=max(0,min(r,r2)-max(l,l2));
     cout<<ans<<endl;    
 }
+
+// I refered explanations.

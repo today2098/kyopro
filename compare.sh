@@ -51,8 +51,13 @@ fi
 
 # Run two codes by random cases until the two answers are not same.
 for (( i=0; i < $N; ++i )) {
+    echo -n "[test $i] "
+
+    echo -n "c.out "
     ./c.out > $INPUT_FILE_PATH
+    echo -n "a.out "
     ans1=$(./a.out < $INPUT_FILE_PATH)
+    echo "b.out"
     ans2=$(./b.out < $INPUT_FILE_PATH)
     
     if [[ $ans1 != $ans2 ]]; then

@@ -49,7 +49,7 @@ if (( $? != 0 )); then
     terminate_execution
 fi
 
-# Run two codes by random cases until the two answers are not same.
+# Test random cases by two ways until the two answers are difference.
 for (( i=0; i < $N; ++i )) {
     echo -n "[test $i] "
 

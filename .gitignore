@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# Other
+.vscode/*.code-snippets
+debug.hpp
+*.cpp
+*.py
+input.txt
+output.txt

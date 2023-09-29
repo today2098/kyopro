@@ -8,11 +8,13 @@
 			"args": [
 				"-std=c++17",
 				"-D=DEBUG",
+				"-O2",
+				"-Wall",
+				"-Wextra",
 				"-fdiagnostics-color=always",
-				"-g",
-				"${file}",
 				"-o",
-				"${workspaceFolder}/debug.out"
+				"${workspaceFolder}/debug.out",
+				"${file}"
 			],
 			"options": {
 				"cwd": "${workspaceFolder}"

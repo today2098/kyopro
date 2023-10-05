@@ -8,6 +8,8 @@
 			"args": [
 				"-std=c++17",
 				"-D=DEBUG",
+				"-I",
+				"~/prog/repos/ac-library",
 				"-O2",
 				"-Wall",
 				"-Wextra",

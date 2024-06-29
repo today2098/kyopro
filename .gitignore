@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# Others
+./.vscode/*
+!./.vscode/kyopro.code-workspace
+!./.vscode/c_cpp_properties.json
+!./.vscode/task.json
+
+*.cpp
+*.hpp

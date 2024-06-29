@@ -1,6 +1,9 @@
 #!/bin/bash
 
-echo '> git update-index --no-assume-unchanged ./*.cpp ./input.txt ./output.txt'
-git update-index --no-assume-unchanged ./*.cpp ./input.txt ./output.txt
+echo '> rm ./.vscode/*.code-snippets ./debug.hpp ./*.out'
+rm ./.vscode/*.code-snippets ./debug.hpp ./*.out
+
+echo '> git update-index --no-assume-unchanged ./*.cpp ./*.go ./*.py ./input.txt ./output.txt'
+git update-index --no-assume-unchanged ./*.cpp ./*.go ./*.py ./input.txt ./output.txt
 
 echo "complete resetting"

@@ -28,6 +28,26 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "Go: go build active file",
+            "type": "shell",
+            "command": "/usr/bin/go",
+            "args": [
+                "build",
+                "-o",
+                "${workspaceFolder}/debug.out",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$go"
+            ],
+            "group": {
+                "kind": "build"
+            }
         }
     ]
 }

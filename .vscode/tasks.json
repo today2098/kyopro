@@ -1,6 +1,4 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
@@ -13,7 +11,7 @@
                 "-O2",
                 "-Wall",
                 "-Wextra",
-                "-fdiagnostics-color",
+                "-fdiagnostics-color=always",
                 "-o",
                 "${workspaceFolder}/debug.out",
                 "${file}"
@@ -28,6 +26,27 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "C/C++: g++ build active file for debug",
+            "type": "cppbuild",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-std=gnu++20",
+                "-fdiagnostics-color=always",
+                "-g",
+                "-o",
+                "${workspaceFolder}/debug.out",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "デバッガーによって生成されたタスク。"
         }
     ]
 }

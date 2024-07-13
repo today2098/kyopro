@@ -4,10 +4,12 @@
             "name": "C/C++: g++ アクティブ ファイルのビルドとデバッグ",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
+            "program": "${workspaceFolder}/debug.out",
+            "args": [
+                "<${workspaceFolder}/input.txt"
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
@@ -23,7 +25,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "C/C++: g++ アクティブなファイルのビルド",
+            "preLaunchTask": "C/C++: g++ build active file for debug",
             "miDebuggerPath": "/usr/bin/gdb"
         }
     ],

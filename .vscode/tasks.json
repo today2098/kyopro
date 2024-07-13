@@ -11,7 +11,7 @@
                 "-O2",
                 "-Wall",
                 "-Wextra",
-                "-fdiagnostics-color",
+                "-fdiagnostics-color=always",
                 "-o",
                 "${workspaceFolder}/debug.out",
                 "${file}"
@@ -28,18 +28,19 @@
             }
         },
         {
+            "label": "C/C++: g++ build active file for debug",
             "type": "cppbuild",
-            "label": "C/C++: g++ アクティブなファイルのビルド",
             "command": "/usr/bin/g++",
             "args": [
+                "-std=gnu++20",
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${workspaceFolder}/debug.out",
+                "${file}"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$gcc"
